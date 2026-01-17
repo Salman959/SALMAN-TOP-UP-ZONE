@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SALMAN TOP UP ZONE | App Download</title>
+    <!-- বাংলা ফন্ট -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- আইকন -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* বেসিক রিসেট */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { text-decoration: none; }
+
+        /* হেডার ডিজাইন */
+        header {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff9900, #ff4500); /* গেমিং অরেঞ্জ */
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .app-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ff4500;
+            text-transform: uppercase;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        /* মেইন কন্টেইনার */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px;
+            flex: 1;
+            text-align: center;
+        }
+
+        /* হিরো সেকশন (ফোন মকআপ) */
+        .hero-image-section {
+            position: relative;
+            margin: 40px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* পেছনের ব্যাকগ্রাউন্ড সার্কেল */
+        .blob-bg {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 50%;
+            z-index: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+        }
+
+        /* ফোন বডি ডিজাইন */
+        .phone-mockup {
+            width: 210px;
+            height: 420px;
+            z-index: 1;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            border: 10px solid #222; /* ফোনের কালো বর্ডার */
+            background: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* ফোনের স্ক্রিন (ডেমো অ্যাপ ইন্টারফেস) */
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen-header {
+            background: #ff4500;
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .screen-banner {
+            margin: 10px;
+            height: 80px;
+            background: #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff9900;
+        }
+
+        .screen-item {
+            margin: 0 10px 10px 10px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .item-icon {
+            width: 30px;
+            height: 30px;
+            background: #e0f7fa;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00bcd4;
+            font-size: 12px;
+        }
+
+        /* টেক্সট কন্টেন্ট */
+        .headline {
+            color: #ff4500;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .sub-text {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-text {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+            background: #fff3e0;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* ডাউনলোড বাটন */
+        .download-btn {
+            background: linear-gradient(to right, #ff4500, #ff7300);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+        }
+
+        /* হাইলাইট টেক্সট */
+        .highlight-features {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 13px;
+            color: #444;
+            font-weight: 500;
+        }
+        
+        .highlight-features span i {
+            color: #28a745;
+            margin-right: 5px;
+        }
+
+        /* ফুটার ইনফো (আপনার দেওয়া তথ্য) */
+        .about-info {
+            text-align: left;
+            margin-top: 60px;
+            padding: 30px 20px;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .about-info h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            border-left: 4px solid #ff4500;
+            padding-left: 10px;
+        }
+
+        .about-info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 5px;
+        }
+
+        .footer-bottom {
+            background-color: #f4f6f9;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* রেসপন্সিভ */
+        @media (max-width: 600px) {
+            .headline { font-size: 22px; }
+            .blob-bg { width: 260px; height: 260px; }
+            .phone-mockup { width: 190px; height: 380px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- হেডার -->
+    <header>
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fas fa-gamepad"></i></div>
+            <div class="app-name">SALMAN TOP UP ZONE</div>
+        </div>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- মেইন কন্টেন্ট -->
+    <div class="container">
+        
+        <!-- ইমেজ সেকশন (ফোনের মধ্যে অ্যাপ) -->
+        <div class="hero-image-section">
+            <div class="blob-bg"></div>
+            
+            <!-- ফোন মকআপ -->
+            <div class="phone-mockup">
+                <!-- ফোনের স্ক্রিন ডিজাইন -->
+                <div class="phone-screen">
+                    <!-- অ্যাপ হেডার -->
+                    <div class="screen-header">
+                        <i class="fas fa-bars" style="margin-right: 10px;"></i> FF Top Up
+                    </div>
+                    <!-- অ্যাপ ব্যানার -->
+                    <div class="screen-banner">
+                        <i class="fas fa-gem" style="font-size: 30px; margin-right: 10px;"></i>
+                        <div>
+                            <div style="font-size:12px; color:#fff;">Special Offer</div>
+                            <div style="font-size:16px; font-weight:bold;">100% Bonus</div>
+                        </div>
+                    </div>
+                    <!-- অ্যাপ লিস্ট আইটেম -->
+                    <div class="screen-item">
+                        <div class="item-icon"><i class="fas fa-user"></i></div>
+                        <div style="text-align:left;">
+                            <div style="font-size:10px; font-weight:bold;">UID Top Up</div>
+                            <div style="font-size:8px; color:#888;">Instant Delivery</div>
+                        </div>
+                    </div>
+                    <div class="screen-item">
+                        <div class="item-icon" style="color:#e91e63; background:#fce4ec;"><i class="fas fa-gift"></i></div>
+                        <div style="text-align:left;">
+                            <div style="font-size:10px; font-weight:bold;">Weekly Membership</div>
+                            <div style="font-size:8px; color:#888;">Cheap Price</div>
+                        </div>
+                    </div>
+                    <div class="screen-item">
+                        <div class="item-icon" style="color:#ff9800; background:#fff3e0;"><i class="fas fa-bolt"></i></div>
+                        <div style="text-align:left;">
+                            <div style="font-size:10px; font-weight:bold;">Level Up Pass</div>
+                            <div style="font-size:8px; color:#888;">Safe & Secure</div>
+                        </div>
+                    </div>
+                     <!-- বাটন ইনসাইড ফোন -->
+                     <div style="margin:10px; background:#ff4500; color:white; padding:8px; border-radius:5px; font-size:12px;">Order Now</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- টেক্সট কন্টেন্ট -->
+        <h1 class="headline">সবচেয়ে কম দামে ডায়মন্ড টপ আপ অ্যাপ</h1>
+        
+        <p class="sub-text">
+            ১০ টাকায় Weekly Lite ৯৯ টাকায় Weekly <br>
+            আইডি পাসওয়ার্ড ছাড়াই শুধুমাত্র UID দিয়ে টপ আপ করুন।
+        </p>
+
+        <p class="info-text">
+            নিচে থেকে অ্যাপটি ডাউনলোড করুন এবং খুব সহজেই বিকাশ/নগদ দিয়ে পেমেন্ট করে ডায়মন্ড কিনুন।
+        </p>
+
+        <!-- ডাউনলোড বাটন -->
+        <a href="https://growearn.xyz/" target="_blank">
+            <button class="download-btn">
+                <i class="fab fa-android"></i> অ্যাপ ডাউনলোড করুন
+            </button>
+        </a>
+
+        <!-- ফিচার হাইলাইট -->
+        <div class="highlight-features">
+            <span><i class="fas fa-check-circle"></i> Instant Delivery</span>
+            <span><i class="fas fa-check-circle"></i> 100% Trusted</span>
+            <span><i class="fas fa-check-circle"></i> 24/7 Support</span>
+        </div>
+
+        <!-- পেমেন্ট প্রুফ/টেলিগ্রাম -->
+        <div style="margin-top: 40px; border-top: 1px solid #ddd; padding-top: 20px;">
+            <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
+                আমাদের সকল অফার এবং আপডেট পেতে অফিসিয়াল টেলিগ্রাম চ্যানেলে জয়েন করুন।
+            </p>
+            <a href="https://t.me/salmantopupzone" target="_blank" style="border: 2px solid #0088cc; color: #0088cc; padding: 10px 25px; border-radius: 50px; font-weight: 600; font-size: 14px; display: inline-block;">
+                <i class="fab fa-telegram-plane"></i> Join Telegram Channel
+            </a>
+        </div>
+
+    </div>
+
+    <!-- ফুটার ইনফো (আপনার রিকোয়েস্ট অনুযায়ী) -->
+    <div class="about-info">
+        <h3>About Owner Info</h3>
+        <p><strong>ISMAIL HOSEN</strong></p>
+        <p><i class="fas fa-envelope"></i> Email: mdsalmankhan445566@gmail.com</p>
+        <p><i class="fas fa-phone-alt"></i> Phone: +8801601856499</p>
+        <p style="font-style: italic; margin-top: 10px; color: #888;">This site is owned and operated by MD SALMAN HOSSAIN</p>
+    </div>
+
+    <!-- কপিরাইট -->
+    <div class="footer-bottom">
+        <p>&copy; Copyright <strong>SALMAN TOP UP ZONE</strong>. All Rights Reserved</p>
+    </div>
+
+</body>
+</html>
